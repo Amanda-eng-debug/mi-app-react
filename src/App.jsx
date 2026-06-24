@@ -1,48 +1,53 @@
-import './App.css'
-import Perfil from './components/Perfil'
-import Clima from './components/Clima'
-import EstadoPedido from './components/EstadoPedido'  
-import MensajeBienvenida from './components/MensajeBienvenida'
-import ListaHabilidades from './components/ListaHabilidades'
-import TablaProductos from './components/TablaProductos'
-import ListaTareas from './components/ListaTareas'
-import Tarjeta from './components/Tarjeta'
-import Dashboard from './components/Dashboard'
-
+// src/App.jsx
+import { useState } from 'react';
+import './App.css';
+import Laboratorio1 from './laboratorios/Lab1';
+import Laboratorio2 from './laboratorios/Lab2';
+import Laboratorio3 from './laboratorios/Lab3'; 
 function App() {
+  const [lab, setLab] = useState(3); 
+
   return (
-    <div className="app-container">
-      <h1>Laboratorio 2  Componentes con JSX</h1>
-      
-      <h2>Ejercicio 1: Perfil</h2>
-      <Perfil />
-      
-      <h2>Ejercicio 2: Clima</h2>
-      <Clima />
-      
-      <h2>Ejercicio 3: Estado del pedido</h2>
-      <EstadoPedido />   
-      
-      <h2>Ejercicio 4: Mensaje de bienvenida</h2>
-      <MensajeBienvenida />
+    <div className="app">
+      <div style={{
+        padding: '15px',
+        backgroundColor: '#f0f0f0',
+        borderBottom: '2px solid #ccc',
+        display: 'flex',
+        gap: '10px',
+        flexWrap: 'wrap',
+        marginBottom: '20px'
+      }}>
+        <button onClick={() => setLab(1)} style={{ padding: '8px 16px', cursor: 'pointer' }}>
+          📁 Laboratorio 1
+        </button>
+        <button onClick={() => setLab(2)} style={{ 
+          padding: '8px 16px', 
+          cursor: 'pointer',
+          backgroundColor: lab === 2 ? '#007bff' : '#e0e0e0',
+          color: lab === 2 ? 'white' : 'black',
+          border: 'none',
+          borderRadius: '4px'
+        }}>
+          📁 Laboratorio 2
+        </button>
+        <button onClick={() => setLab(3)} style={{ 
+          padding: '8px 16px', 
+          cursor: 'pointer',
+          backgroundColor: lab === 3 ? '#007bff' : '#e0e0e0',
+          color: lab === 3 ? 'white' : 'black',
+          border: 'none',
+          borderRadius: '4px'
+        }}>
+          📁 Laboratorio 3
+        </button>
+      </div>
 
-      <h2>Ejercicio 5: Lista de habilidades</h2>
-      <ListaHabilidades />
-
-      <h2>Ejercicio 6: Tabla de productos</h2>
-       <TablaProductos />
-
-      <h2>Ejercicio 7: Lista de tareas</h2>
-      <ListaTareas />
-
-      <h2>Ejercicio 8: Tarjeta</h2>
-      <Tarjeta />
-
-      <h2>Ejercicio 9: Dashboard</h2>
-      <Dashboard />
-
+      {lab === 1 && <Laboratorio1 />}
+      {lab === 2 && <Laboratorio2 />}
+      {lab === 3 && <Laboratorio3 />}
     </div>
-  )
+  );
 }
 
-export default App
+export default App;

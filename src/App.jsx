@@ -3,9 +3,11 @@ import { useState } from 'react';
 import './App.css';
 import Laboratorio1 from './laboratorios/Lab1';
 import Laboratorio2 from './laboratorios/Lab2';
-import Laboratorio3 from './laboratorios/Lab3'; 
+import Laboratorio3 from './laboratorios/Lab3';
+import Laboratorio4 from './laboratorios/Lab4';
+
 function App() {
-  const [lab, setLab] = useState(3); 
+  const [lab, setLab] = useState(4); // Para abrir el Lab4 por defecto
 
   return (
     <div className="app">
@@ -41,13 +43,26 @@ function App() {
         }}>
           📁 Laboratorio 3
         </button>
+        <button onClick={() => setLab(4)} style={{ 
+          padding: '8px 16px', 
+          cursor: 'pointer',
+          backgroundColor: lab === 4 ? '#007bff' : '#e0e0e0',
+          color: lab === 4 ? 'white' : 'black',
+          border: 'none',
+          borderRadius: '4px'
+        }}>
+          📁 Laboratorio 4
+        </button>
       </div>
 
       {lab === 1 && <Laboratorio1 />}
       {lab === 2 && <Laboratorio2 />}
       {lab === 3 && <Laboratorio3 />}
+      {lab === 4 && <Laboratorio4 />}
     </div>
   );
 }
+
+
 
 export default App;

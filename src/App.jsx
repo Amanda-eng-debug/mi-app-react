@@ -5,10 +5,10 @@ import Laboratorio1 from './laboratorios/Lab1';
 import Laboratorio2 from './laboratorios/Lab2';
 import Laboratorio3 from './laboratorios/Lab3';
 import Laboratorio4 from './laboratorios/Lab4';
+import Laboratorio5 from './laboratorios/Lab5';
 
 function App() {
-  const [lab, setLab] = useState(4); // Para abrir el Lab4 por defecto
-
+  const [lab, setLab] = useState(5); 
   return (
     <div className="app">
       <div style={{
@@ -53,16 +53,25 @@ function App() {
         }}>
           📁 Laboratorio 4
         </button>
+        <button onClick={() => setLab(5)} style={{ 
+          padding: '8px 16px', 
+          cursor: 'pointer',
+          backgroundColor: lab === 5 ? '#007bff' : '#e0e0e0',
+          color: lab === 5 ? 'white' : 'black',
+          border: 'none',
+          borderRadius: '4px'
+        }}>
+          📁 Laboratorio 5
+        </button>
       </div>
 
       {lab === 1 && <Laboratorio1 />}
       {lab === 2 && <Laboratorio2 />}
       {lab === 3 && <Laboratorio3 />}
       {lab === 4 && <Laboratorio4 />}
+      {lab === 5 && <Laboratorio5 />}
     </div>
   );
 }
-
-
 
 export default App;
